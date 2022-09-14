@@ -1,0 +1,40 @@
+body {
+    font-family: sans-serif;
+    background-color: #DEDEDE;
+    color: #333;
+    text-align: center;
+  }
+
+  .container {
+    padding: 40px;
+    margin: auto;
+    text-align: center;
+}
+
+  #charactersList {
+    border: 2px solid black;
+    padding-inline-start: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.character {
+  list-style-type: none;
+  background-color: #eaeaea;
+  border-radius: 3px;
+  width: auto;
+  margin: 10px 40px;
+  padding: 20px;
+}
+
+img {
+    height: 150px;
+    width: 100%;
+  }
+
+#searchBar {
+    height: 32px;
+    width: 200px;
+    border-radius: 3px;
+    font-size: 12px;
+}
