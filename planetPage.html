@@ -6,7 +6,6 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Planet Page</title>
         <link rel="stylesheet" href="planetPage.css" />
-        <script src="planetPage.js" defer></script>
     </head>
     <body>
         <div class="container">
@@ -16,10 +15,17 @@
                     type="text"
                     name="searchBar"
                     id="searchBar"
-                    placeholder="search for a character"
+                    placeholder="search for a planet"
+                    value=""
                 />
             </div>
+            <ul id="homeBar">
+                <li><a href="characterPage.html">Character Page</a></li>
+                <li><a href="planetPage.html">Planet Page</a></li>
+                <li><a href="racePage.html">Race Page</a></li>
+            </ul>
             <ul id="charactersList"></ul>
         </div>
+        <script src="planetPage.js" defer></script>
     </body>
 </html>

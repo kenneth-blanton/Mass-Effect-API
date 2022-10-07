@@ -1,50 +1,143 @@
-let characters = [];
-
-getData()
-.then(buildPage)
-.catch(error => {
-    console.log(error);
-});
-
-async function getData() {
-    const fetching = await fetch("https://raw.githubusercontent.com/cvines528/mass-effect-api/main/db.json"); // fetched data as a variable
-    console.log(fetching);
-    return fetching.json();
-}
-
-function buildPage(data) {
-    console.log(data);
-    console.log(data.characters[0]);
-    document.getElementById("charactersList").innerHTML = `
-    ${data.characters[0].squadmates.map(characterTemplate).join('')}
-    ${data.characters[0].temporarySquadMates.map(characterTemplate).join('')}
-    ${data.characters[0].Allies.map(characterTemplate).join('')}
-    ${data.characters[0].Adversaries.map(characterTemplate).join('')}
-    `;
-}
-
-function characterTemplate(eachCharacter) {
-    /* 
-    The map function iterates through an array
-    Set up a parameter for it (eachCharacter)
-    Use that parameter (eachCharacter) just like data 
-    */
-    return  `
-    <li class="character">
-            <img src="${eachCharacter.img.split('rev')[0]}"></img>
-            <h5 class="planet-name">Name: ${eachCharacter.name}</h5>
-            <p>Race: ${eachCharacter.race}</p>
-    </li>`
-}
+const charactersList = document.getElementById('charactersList');
+const charactersList2 = document.getElementById('charactersList2');
+const charactersList3 = document.getElementById('charactersList3');
+const charactersList4 = document.getElementById('charactersList4');
+const searchBar = document.getElementById('searchBar');
+let data = [];
 
 searchBar.addEventListener('keyup', (e) => {
     const searchString = e.target.value.toLowerCase();
 
-    const filteredCharacters = characters.filter((character) => {
+    const filteredPlanets = data.characters[0].squadmates.filter((planet) => {
         return (
-            character.name.toLowerCase().includes(searchString) ||
-            character.race.toLowerCase().includes(searchString)
+            planet.name.toLowerCase().includes(searchString)
         );
     });
-   buildPage(filteredCharacters);
+    displaySquadmates(filteredPlanets);
+
+    const filteredPlanets2 = data.characters[0].temporarySquadMates.filter((planet) => {
+        return (
+            planet.name.toLowerCase().includes(searchString)
+        );
+    });
+    displaytemporarySquadMates(filteredPlanets2);
+
+    const filteredPlanets3 = data.characters[0].Allies.filter((planet) => {
+        return (
+            planet.name.toLowerCase().includes(searchString)
+        );
+    });
+    displayAllies(filteredPlanets3);
+
+    const filteredPlanets4 = data.characters[0].Adversaries.filter((planet) => {
+        return (
+            planet.name.toLowerCase().includes(searchString)
+        );
+    });
+    displayAdversaries(filteredPlanets4);
 });
+
+const loadPlanets = async () => {
+    try {
+        const res = await fetch('https://raw.githubusercontent.com/cvines528/mass-effect-api/main/db.json');
+        data = await res.json();
+        console.log(data)
+            displaySquadmates(data.characters[0].squadmates)
+            displaytemporarySquadMates(data.characters[0].temporarySquadMates)
+            displayAllies(data.characters[0].Allies)
+            displayAdversaries(data.characters[0].Adversaries)
+        
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+const displaySquadmates = (planets) => {
+    if (planets.length == 0) {
+        document.getElementById("Squadmates").style.display = "none";
+     } else {
+        document.getElementById("Squadmates").style.display = "block";
+     }
+
+    const squadString = planets
+        .map((planet) => {
+            return `
+            <li class="character">
+            <img src="${planet.img.split('rev')[0]}"></img>
+                <h3>${planet.name}</h3>
+                <h4>${planet.race}</h4>
+                <p>"${planet.quote}"</p>
+            </li>
+        `;
+        })
+        .join('');
+    charactersList.innerHTML = squadString;
+};
+
+const displaytemporarySquadMates = (planets) => {
+    if (planets.length == 0) {
+       document.getElementById("Temporary Squadmates").style.display = "none";
+    } else {
+        document.getElementById("Temporary Squadmates").style.display = "block";
+     }
+
+    const htmlString = planets
+        .map((planet) => {
+            return `
+            <li class="character">
+            <img src="${planet.img.split('rev')[0]}"></img>
+                <h3>${planet.name}</h3>
+                <h4>${planet.race}</h4>
+                <p>"${planet.quote}"</p>
+            </li>
+        `;
+        })
+        .join('');
+    charactersList2.innerHTML = htmlString;
+};
+
+const displayAllies = (planets) => {
+    if (planets.length == 0) {
+        document.getElementById("Allies").style.display = "none";
+     } else {
+         document.getElementById("Allies").style.display = "block";
+      }
+
+    const htmlString = planets
+        .map((planet) => {
+            return `
+            <li class="character">
+            <img src="${planet.img.split('rev')[0]}"></img>
+                <h3>${planet.name}</h3>
+                <h4>${planet.race}</h4>
+                <p>"${planet.quote}"</p>
+            </li>
+        `;
+        })
+        .join('');
+    charactersList3.innerHTML = htmlString;
+};
+const displayAdversaries = (planets) => {
+    if (planets.length == 0) {
+        document.getElementById("Adversaries").style.display = "none";
+     } else {
+         document.getElementById("Adversaries").style.display = "block";
+      }
+
+    const htmlString = planets
+        .map((planet) => {
+            return `
+            <li class="character">
+            <img src="${planet.img.split('rev')[0]}"></img>
+                <h3>${planet.name}</h3>
+                <h4>${planet.race}</h4>
+                <p>"${planet.quote}"</p>
+            </li>
+        `;
+        })
+        .join('');
+    charactersList4.innerHTML = htmlString;
+};
+
+loadPlanets();
+

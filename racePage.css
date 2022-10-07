@@ -10,7 +10,7 @@ body {
   }
   .container {
     padding: 40px;
-    margin: auto;
+    margin: 0 auto;
     text-align: center;
 }
 
@@ -28,46 +28,52 @@ body {
 	text-decoration: none;
 }
 
-#homeBar li:nth-child(1) {
+#homeBar li:nth-child(3) {
   background-color: black;
 }
 
-#hi {
-  color: black;
+#wholeList {
+  color: rgb(0, 0, 0);
 }
 
-#hi p {
+#wholeList p {
   font-size: 12px;
 }
 
-#hi h2 {
+#wholeList h2 {
   color: white;
   border-top: 2px solid rgb(255, 255, 255);
   border-bottom: 2px solid rgb(255, 255, 255);
 }
 
-#charactersList {
+#raceList {
   padding-inline-start: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, .2fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, .2fr));
 }
 
-#charactersList2 {
+#raceList2 {
   padding-inline-start: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, .2fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, .2fr));
 }
 
-#charactersList3 {
+#raceList3 {
   padding-inline-start: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, .2fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, .2fr));
 }
 
-#charactersList4 {
+#raceList4 {
   padding-inline-start: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, .2fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, .2fr));
+}
+
+#raceList5 {
+  padding-inline-start: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, .2fr));
 }
 
 .character {
@@ -85,10 +91,14 @@ img {
   }
 
 #searchBar {
-  margin: auto;
-  text-align: center;
-    height: 32px;
-    width: 200px;
-    border-radius: 3px;
-    font-size: 12px;
+  width: 200px;
+  height: 32px;
+  border-radius: 3px;
+  border: 1px solid #eaeaea;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+#searchWrapper {
+  position: relative;
 }
