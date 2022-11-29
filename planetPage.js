@@ -1,4 +1,4 @@
-const planetsList = document.getElementById('charactersList');
+const planetsList = document.getElementById('planetList');
 const searchBar = document.getElementById('searchBar');
 let data = [];
 
@@ -22,6 +22,7 @@ const loadPlanets = async () => {
         for (let i = 0; i < data.planets.length; i++) {
             console.log(data.planets[i].name)
         }
+        console.log(data.planets)
     } catch (error) {
         console.error(error);
     }
@@ -31,11 +32,12 @@ const displayPlanets = (planets) => {
     const htmlString = planets
         .map((planet) => {
             return `
-            <li class="character">
+            <div class="character">
                 <img src="${planet.picture.split('rev')[0]}"></img>
                 <h2>${planet.name}</h2>
                 <p>Race: ${planet.homeRace}</p>
-            </li>
+                <p>${planet.description}</p>
+            </div>
         `;
         })
         .join('');

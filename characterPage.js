@@ -62,12 +62,12 @@ const displaySquadmates = (planets) => {
     const squadString = planets
         .map((planet) => {
             return `
-            <li class="character">
+            <div class="character">
             <img src="${planet.img.split('rev')[0]}"></img>
                 <h3>${planet.name}</h3>
                 <h4>${planet.race}</h4>
-                <p>"${planet.quote}"</p>
-            </li>
+                <p>${planet.description.split('.')[0]}.${planet.description.split('.')[1]}</p>
+            </div>
         `;
         })
         .join('');
@@ -84,12 +84,12 @@ const displaytemporarySquadMates = (planets) => {
     const htmlString = planets
         .map((planet) => {
             return `
-            <li class="character">
+            <div class="character">
             <img src="${planet.img.split('rev')[0]}"></img>
                 <h3>${planet.name}</h3>
                 <h4>${planet.race}</h4>
-                <p>"${planet.quote}"</p>
-            </li>
+                <p>${planet.description.split('.')[0]}.${planet.description.split('.')[1]}</p>
+            </div>
         `;
         })
         .join('');
@@ -106,12 +106,12 @@ const displayAllies = (planets) => {
     const htmlString = planets
         .map((planet) => {
             return `
-            <li class="character">
+            <div class="character">
             <img src="${planet.img.split('rev')[0]}"></img>
                 <h3>${planet.name}</h3>
                 <h4>${planet.race}</h4>
-                <p>"${planet.quote}"</p>
-            </li>
+                <p>${planet.description.split('.')[0]}.${planet.description.split('.')[1]}</p>
+            </div>
         `;
         })
         .join('');
@@ -127,12 +127,12 @@ const displayAdversaries = (planets) => {
     const htmlString = planets
         .map((planet) => {
             return `
-            <li class="character">
+            <div class="character">
             <img src="${planet.img.split('rev')[0]}"></img>
                 <h3>${planet.name}</h3>
                 <h4>${planet.race}</h4>
-                <p>"${planet.quote}"</p>
-            </li>
+                <p>${planet.description.split('.')[0]}.${planet.description.split('.')[1]}</p>
+            </div>
         `;
         })
         .join('');

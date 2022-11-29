@@ -6,11 +6,12 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Race Page</title>
         <link rel="stylesheet" href="racePage.css" />
+        <script src="racePage.js" defer></script>
     </head>
     <body>
-        <div class="container">
-            <h1>Race Page</h1>
+        <div class="container">            
             <div id="searchWrapper">
+                <h1>Mass Effect Races</h1>
                 <input
                     type="text"
                     name="searchBar"
@@ -19,24 +20,23 @@
                     value=""
                 />
             </div>
-            <ul id="homeBar">
-                <li><a href="index.html">Character Page</a></li>
-                <li><a href="planetPage.html">Planet Page</a></li>
-                <li><a href="racePage.html">Race Page</a></li>
-            </ul>
-            <ul id="wholeList">
+            <div id="homeBar">
+                <span><a href="index.html">Character Page</a></span>
+                <span><a href="planetPage.html">Planet Page</a></span>
+                <span><a href="racePage.html">Race Page</a></span>
+            </div>
+            <div class="wholeList">
                 <h2 id="Citadel Races">Citadel Races</h2>
-                <ul id="raceList"></ul>
+                <div id="raceList"></div>
                 <h2 id="Non-Citadel Races">Non-Citadel Races</h2>
-                <ul id="raceList2"></ul>
+                <div id="raceList2"></div>
                 <h2 id="Historical Races">Historical Races</h2>
-                <ul id="raceList3"></ul>
+                <div id="raceList3"></div>
                 <h2 id="Non-Sapient Creatures">Non-Sapient Creatures</h2>
-                <ul id="raceList4"></ul>
+                <div id="raceList4"></div>
                 <h2 id="Other Creatures">Other Creatures</h2>
-                <ul id="raceList5"></ul>
-            </ul>
+                <div id="raceList5"></div>
+            </div>
         </div>
-        <script src="racePage.js" defer></script>
     </body>
 </html>
