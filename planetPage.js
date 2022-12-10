@@ -44,6 +44,49 @@ const displayPlanets = (planets) => {
     planetsList.innerHTML = htmlString;
 };
 
+// import { useState } from 'react';
+
+// const Home = () => {
+//     var random = Math.floor(Math.random() * 101)
+    
+//     const [blogs, setBlogs] = useState([
+//         {title: 'My new site', body: 'stuff', author: 'Edgar Allen', id: 1},
+//         {title: 'Sight Seeing', body: 'stuff...', author: 'Allen Robinson', id: 2},
+//         {title: 'Seeing Green', body: '...stuff', author: 'Robinson Cano', id: 3}
+//     ]);
+
+//     const display = (data) => { 
+//         console.log(data.target.id)
+//         console.log(blogs[data.target.id-1].body)
+
+//         var x = document.getElementById(data.target.id);
+//         if (x.style.display === "block") {
+//             x.style.display = "none";
+//         } else {
+//             x.style.display = "block";
+//         }
+
+//      }
+
+//     return ( 
+//         <div className="home">
+//             {blogs.map((blog) => (
+//                 <div className="blog-preview" key={blog.id}>
+//                     <h2>{blog.title}</h2>
+//                     <p>Written by {blog.author}</p>
+//                     <p className='stuff' id={blog.id}>
+//                         {blog.body}
+//                     </p> 
+//                     <button className='btn' id={blog.id} onClick={ display }>Show Details</button>                 
+//                 </div>
+//             ))}
+//             <p>{random}</p>
+//         </div>
+//      );
+// }
+ 
+// export default Home;
+
 loadPlanets();
 
 // https://raw.githubusercontent.com/cvines528/mass-effect-api/main/db.json
